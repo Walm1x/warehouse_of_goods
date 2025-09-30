@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Авторизация/Регистрация / Склад</title>
   <style>
-    /* ===== Стили для страницы Авторизации/Регистрации ===== */
     body {
       background-color: #333;
       color: #fff;
@@ -72,11 +71,10 @@
       text-decoration: underline;
     }
 
-    /* ===== Стили для Главной Страницы (Склад) ===== */
     .main-page {
-        display: none; /* Скрываем по умолчанию */
+        display: none; 
         width: 100%;
-        max-width: 1200px; /* Ограничиваем ширину */
+        max-width: 1200px; 
         margin: 0 auto;
         padding: 20px;
         box-sizing: border-box;
@@ -113,7 +111,7 @@
     main {
       padding: 20px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Адаптивная сетка */
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
       gap: 20px;
     }
 
@@ -156,7 +154,7 @@
     #logoutButton {
       width: 100px;
       margin: 20px auto;
-      display: block; /* Чтобы кнопка занимала всю ширину родителя */
+      display: block; 
       padding: 10px;
       background-color: #777;
       color: #fff;
@@ -172,7 +170,6 @@
 </head>
 <body>
 
-  <!-- ===== Окно Авторизации/Регистрации ===== -->
   <div class="container" id="authContainer">
     <div class="form-wrapper" id="registration-form">
       <h2>Регистрация</h2>
@@ -197,7 +194,6 @@
     </div>
   </div>
 
-  <!-- ===== Главная Страница (Склад) ===== -->
   <div class="main-page" id="mainPage">
     <header>
       <div class="menu-icon">&#9776;</div>
@@ -250,7 +246,6 @@
 
 
   <script>
-    // Проверяем авторизацию при загрузке страницы
     function checkAuth() {
       if (localStorage.getItem('isLoggedIn') === 'true') {
         showMainPage();
@@ -259,19 +254,16 @@
       }
     }
 
-    // Функция для показа Главной Страницы
     function showMainPage() {
         document.getElementById('authContainer').style.display = 'none';
         document.getElementById('mainPage').style.display = 'block';
     }
 
-    // Функция для показа страницы Авторизации/Регистрации
     function showAuthPage() {
         document.getElementById('mainPage').style.display = 'none';
         document.getElementById('authContainer').style.display = 'block';
     }
 
-    // Функция для переключения между формами регистрации и авторизации
     document.getElementById('login-link').addEventListener('click', function(e) {
       e.preventDefault();
       document.getElementById('registration-form').style.display = 'none';
@@ -284,26 +276,25 @@
       document.getElementById('registration-form').style.display = 'block';
     });
 
-    // Функции для обработки логина и регистрации (только для демонстрации)
     function login() {
-      localStorage.setItem('isLoggedIn', 'true'); // Устанавливаем флаг авторизации
-      showMainPage(); // Показываем главную страницу
+      localStorage.setItem('isLoggedIn', 'true'); 
+      showMainPage();
     }
 
     function register() {
-      localStorage.setItem('isLoggedIn', 'true'); // Устанавливаем флаг авторизации
-      showMainPage(); // Показываем главную страницу
+      localStorage.setItem('isLoggedIn', 'true'); 
+      showMainPage(); 
     }
 
-    // Функция для выхода
     function logout() {
-      localStorage.removeItem('isLoggedIn'); // Удаляем флаг авторизации
-      showAuthPage(); // Показываем страницу авторизации
+      localStorage.removeItem('isLoggedIn'); 
+      showAuthPage();
     }
 
-    checkAuth(); // Вызываем проверку авторизации при загрузке страницы
+    checkAuth();
 
   </script>
 
 </body>
+
 </html>
